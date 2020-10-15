@@ -2,7 +2,7 @@
 * @Author: dell
 * @Date:   2020-10-15 17:23:01
 * @Last Modified by:   Kinjal
-* @Last Modified time: 2020-10-15 17:51:16
+* @Last Modified time: 2020-10-15 17:54:52
 */
 
 $('#search_data').keyup(function(event)
@@ -10,7 +10,7 @@ $('#search_data').keyup(function(event)
        $.ajax({
         type: "GET",
         url: $("#search_url").val(),
-        data: {'search':$(this).val()},
+        data: {'search':$(this).val(),'request_call':'web'},
         //processData: false,
         contentType: false,
         cache: false,
