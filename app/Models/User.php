@@ -46,22 +46,26 @@ class User extends Authenticatable
 
     public static function searchConnectionRecords($search)
     {
-        $object=self::select('first_name','last_name','email');
+        $object=self::select('users.id','users.first_name','users.last_name','users.email','users.phone','user_technologies.technology');
 
         $object->leftJoin('user_technologies',function($join){
             $join->on('user_technologies.user_id','users.id');
         });
 
         $object->where(function($q)use ($search){
-            $q->where('first_name','like','%'.$search.'%');
-            $q->orwhere('last_name','like','%'.$search.'%');
-            $q->orwhere('email','like','%'.$search.'%');
-            $q->orwhere('phone','like','%'.$search.'%');
+            $q->where('users.first_name','like','%'.$search.'%');
+            $q->orwhere('users.last_name','like','%'.$search.'%');
+            $q->orwhere('users.email','like','%'.$search.'%');
+            $q->orwhere('users.phone','like','%'.$search.'%');
             $q->orwhere('user_technologies.technology','like','%'.$search.'%');
         });
 
-        $object->groupBy('users.id');
+        //$object->groupBy('users.id');
 
         return $object->get();
+    }
+
+    public function technology(){
+        return $this->hasMany('App\Models\UserTechnology','user_id','id');
     }
 }

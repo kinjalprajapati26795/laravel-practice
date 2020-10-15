@@ -26,6 +26,12 @@
                                 Email
                             </th>
                              <th>
+                                Phone
+                            </th>
+                             <th>
+                                Technology
+                            </th>
+                             <th>
                                 Action
                             </th>
                         </thead>
