@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +26,5 @@ Route::post('sign-up',[AuthController::class, 'signup'])->name('user.signup');
 
 Route::post('login',[AuthController::class, 'login'])->name('user.login');
 
-/*Route::group([
-    'prefix' => 'auth'
-], function () {
-    Route::post('login', 'Api\AuthController@login');
-    Route::post('signup', 'Api\AuthController@signup');
-  
-    Route::group([
-      'middleware' => 'auth:api'
-    ], function() {
-        Route::get('logout', 'Api\AuthController@logout');
-        Route::get('user', 'Api\AuthController@user');
-    });
-});*/
+Route::get('search-connection', [App\Http\Controllers\Api\DashboardController::class, 'searchConnection'])->name('search-connection');
+

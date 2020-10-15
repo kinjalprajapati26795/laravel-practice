@@ -15,15 +15,18 @@
                     @endif
 
                     {{ __('You are logged in!') }}<br>
-
+                    <input type="hidden" name="search_url" id="search_url" value="{{ route('search-connection') }}">
                     Search Connection<input type="textbox" name="search" id="search_data">
-                    <table>
+                    <table id="searched_data">
                         <thead>
                             <th>
-                                name
+                                Name
                             </th>
                             <th>
-                                email
+                                Email
+                            </th>
+                             <th>
+                                Action
                             </th>
                         </thead>
                         <tbody>
@@ -35,5 +38,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
 @endsection

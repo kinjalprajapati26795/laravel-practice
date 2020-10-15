@@ -25,6 +25,11 @@ Route::get('sign-up',[UsersController::class, 'signUp'])->name('sign-up');
 //Route::get('login',[LoginController::class, 'login'])->name('login');
 
 Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 

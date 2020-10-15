@@ -11,8 +11,5 @@ class UsersController extends Controller
     	return view('sign_up');
     }
 
-    public function login()
-    {
-    	return view('login');
-    }
+    
 }
